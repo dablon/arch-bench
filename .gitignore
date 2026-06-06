@@ -1,0 +1,139 @@
+# ===== SECRETS & SENSITIVE CONFIG (CRITICAL — PUBLIC/PRIVATE REPOS) =====
+.env
+.env.*
+!.env.example
+*.local
+appsettings.json
+appsettings.*.json
+!appsettings.Example.json
+config.json
+config.*.json
+!config.example.json
+secrets.json
+secrets.yaml
+secrets.yml
+credentials.json
+credentials.yaml
+service-account*.json
+firebase*.json
+gcloud*.json
+
+# ===== PRIVATE KEYS & CERTIFICATES =====
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.cert
+*.crt
+*.csr
+*.der
+*.p7b
+*.p7c
+id_rsa
+id_ed25519
+id_ecdsa
+*.ppk
+
+# ===== TOKENS & AUTH FILES =====
+.npmrc
+.pypirc
+.docker/config.json
+.kube/config
+.aws/
+.azure/
+.gcloud/
+token.json
+oauth*.json
+*.token
+
+# ===== DATABASE =====
+*.sqlite
+*.sqlite3
+*.db
+*.sql.gz
+*.dump
+*.bak
+
+# ===== LANGUAGE ARTIFACTS =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+vendor/
+
+# Go
+*.exe
+# Keep go.sum (needed for reproducible builds)
+# Keep go.mod
+
+# Rust
+target/
+# Keep Cargo.lock for binaries
+Cargo.lock
+
+# C
+*.o
+*.a
+libssl-sym/
+bin/
+
+# .NET
+bin/
+obj/
+
+# Java
+*.class
+*.jar
+
+# ===== IDE & OS =====
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== DOCKER =====
+.docker/
+docker-compose.override.yml
+
+# ===== TERRAFORM =====
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+
+# ===== LOGS & TEMP =====
+*.log
+logs/
+tmp/
+temp/
+.cache/
+
+# ===== EVIDENCE / TEST ARTIFACTS =====
+evidence/raw/
+*.pcap
+*.har

@@ -1,0 +1,23 @@
+[package]
+name = "rust-flat-grpc"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "rust_flat_grpc"
+path = "src/lib.rs"
+
+[[bin]]
+name = "rust-flat-grpc"
+path = "src/main.rs"
+
+[dependencies]
+jsonwebtoken = "9"
+prost = "0.13"
+tonic = "0.13"
+serde_json = "1"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "net"] }
+async-trait = "0.1"
+
+[build-dependencies]
+tonic-build = "0.13"
