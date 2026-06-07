@@ -1,0 +1,17 @@
+[package]
+name = "rust-flat-uds"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "rust_flat_uds"
+path = "src/lib.rs"
+
+[[bin]]
+name = "rust-flat-uds"
+path = "src/main.rs"
+
+[dependencies]
+jsonwebtoken = "9"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"

@@ -1,0 +1,38 @@
+# Build artifacts
+target/
+.cargo-target/
+*.o
+*.a
+*.so
+*.dylib
+
+# Rust
+Cargo.lock
+
+# Go
+/vendor/
+
+# Binaries
+bin/
+dist/
+build/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Evidence (large data files)
+evidence/mini/*.csv
+evidence/mini/*.summary
+
+# Temporary files
+*.tmp
+*.bak

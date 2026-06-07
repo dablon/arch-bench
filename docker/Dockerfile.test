@@ -1,0 +1,62 @@
+# Multi-stage base for running all arch-bench tests.
+# One image. One entrypoint. All 24 services tested in parallel.
+
+ARG GO_VERSION=1.23.4
+ARG RUST_VERSION=1.88.0
+ARG PROTOC_VERSION=25.1
+
+# ---------- builder base (compile everything) ----------------------
+FROM ubuntu:24.04 AS builder-base
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    ca-certificates \
+    cmake \
+    curl \
+    git \
+    libssl-dev \
+    python3 \
+    python3-pip \
+    unzip \
+    xz-utils \
+    && rm -rf /var/lib/apt/lists/*
+
+# protoc
+ARG PROTOC_VERSION
+RUN mkdir -p /opt/protoc && cd /opt/protoc \
+    && curl -sL -o protoc.zip https://github.com/protocolbuffers/protobuf/releases/download/v${PROTOC_VERSION}/protoc-${PROTOC_VERSION}-linux-x86_64.zip \
+    && unzip -q protoc.zip \
+    && rm protoc.zip \
+    && chmod +x bin/protoc
+
+# Go
+ARG GO_VERSION
+RUN mkdir -p /opt/go && cd /opt/go \
+    && curl -sL -o go.tar.xz https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz \
+    && tar -xf go.tar.xz --strip-components=1 \
+    && rm go.tar.xz
+
+# Rust (minimal profile, no docs)
+ARG RUST_VERSION
+ENV RUSTUP_HOME=/opt/rustup
+ENV CARGO_HOME=/opt/cargo
+RUN mkdir -p /opt/rustup /opt/cargo \
+    && curl -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain ${RUST_VERSION} --profile minimal --no-modify-path \
+    && chmod -R a+rX /opt/rustup /opt/cargo
+
+ENV PATH="/opt/protoc/bin:/opt/go/bin:/opt/cargo/bin:${PATH}"
+ENV GOPATH=/opt/gopath
+ENV GOCACHE=/opt/gocache
+ENV CARGO_TARGET_DIR=/src/.cargo-target
+RUN mkdir -p /opt/gopath /opt/gocache
+
+WORKDIR /src
+
+# Default: run all tests across the 24 services
+COPY docker/entrypoint-test.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/entrypoint-test.sh
+
+ENTRYPOINT ["/usr/local/bin/entrypoint-test.sh"]
+CMD ["--all"]

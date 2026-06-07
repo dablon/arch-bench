@@ -1,0 +1,45 @@
+# docker-compose.test.yml — run all 24 services' tests in parallel groups
+# to maximize throughput on a single host.
+#
+# Usage:
+#   docker compose -f docker-compose.test.yml build
+#   docker compose -f docker-compose.test.yml run --rm all
+#   docker compose -f docker-compose.test.yml run --rm go-tests
+#   docker compose -f docker-compose.test.yml run --rm rust-tests
+#   docker compose -f docker-compose.test.yml run --rm c-tests
+
+x-common: &common
+  build:
+    context: .
+    dockerfile: docker/Dockerfile.test
+  volumes:
+    - ./:/src:ro
+  working_dir: /src
+
+services:
+  # All tests sequentially — easiest, lowest memory.
+  all:
+    <<: *common
+    command: ["--all"]
+
+  # Three parallel groups for speed (requires more memory).
+  go-tests:
+    <<: *common
+    command: ["--go"]
+  rust-tests:
+    <<: *common
+    command: ["--rust"]
+  c-tests:
+    <<: *common
+    command: ["--c"]
+
+  # Per-transport subgroups.
+  http-tests:
+    <<: *common
+    command: ["--http"]
+  uds-tests:
+    <<: *common
+    command: ["--uds"]
+  grpc-tests:
+    <<: *common
+    command: ["--grpc"]

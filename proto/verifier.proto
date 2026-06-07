@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package verifier;
+
+option go_package = "github.com/dablon/arch-bench/proto/pb;pb";
+
+service Verifier {
+  rpc Verify(VerifyRequest) returns (VerifyResponse);
+}
+
+message VerifyRequest {
+  string token = 1;
+}
+
+message VerifyResponse {
+  bool valid = 1;
+  string subject = 2;
+  string code = 3;
+}

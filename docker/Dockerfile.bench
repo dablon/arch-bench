@@ -1,0 +1,15 @@
+# Benchmark runner. Builds on the test image (which already has all
+# toolchains installed and the entrypoint test script).
+FROM arch-bench-test:latest
+
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    time file ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /src
+COPY docker/entrypoint-bench.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/entrypoint-bench.sh
+
+ENTRYPOINT ["/usr/local/bin/entrypoint-bench.sh"]
+CMD ["20"]
