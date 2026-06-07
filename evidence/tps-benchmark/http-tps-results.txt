@@ -14,3 +14,5 @@ go-hex-http          392.2   0.44     0.38   0.70   1.83   7.95
 - Rust services lead with ~390-396 TPS
 - Go services show variation: flat=203 TPS, layered=393 TPS, hex=392 TPS
 - Architecture impact more visible in Go than Rust
+C services require GLIBC 2.38 but system has older version. Skipping C tests.
+C services: Not tested (GLIBC version mismatch)
