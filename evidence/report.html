@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html><head><title>arch-bench Results</title><style>
+body{font-family:-apple-system,sans-serif;margin:40px;background:#1a1a2e;color:#eee}
+h1{color:#00d4ff}h2{color:#00ff88}
+table{border-collapse:collapse;width:100%;margin-top:20px}
+th,td{border:1px solid #333;padding:8px;text-align:center}
+th{background:#16213e;color:#00d4ff}
+tr:nth-child(even){background:#16213e}
+.hi{color:#00ff88;font-weight:bold}
+.lo{color:#ff6b6b}
+</style></head><body>
+<h1>arch-bench: 24 Services Benchmark</h1>
+<p>JWT Verifier domain | C/Go/Rust x Flat/Layered/Hex x HTTP/gRPC/UDS</p>
+<table><tr><th>Service</th><th>Total</th><th>p50</th><th>p95</th><th>p99</th><th>Max</th><th>RPS</th></tr>
+<tr><td>rust-flat-uds</td><td>868747</td><td class="hi">0.03ms</td><td>0.04ms</td><td>0.05ms</td><td>3.09ms</td><td>86875</td></tr>
+<tr><td>rust-layered-uds</td><td>869399</td><td class="hi">0.03ms</td><td>0.04ms</td><td>0.05ms</td><td>3.11ms</td><td>86940</td></tr>
+<tr><td>c-flat-uds</td><td>804391</td><td class="hi">0.03ms</td><td>0.05ms</td><td>0.06ms</td><td>4.02ms</td><td>80439</td></tr>
+<tr><td>c-hex-uds</td><td>797897</td><td class="hi">0.03ms</td><td>0.05ms</td><td>0.06ms</td><td>3.21ms</td><td>79790</td></tr>
+<tr><td>c-layered-uds</td><td>783964</td><td class="hi">0.03ms</td><td>0.05ms</td><td>0.06ms</td><td>2.79ms</td><td>78396</td></tr>
+<tr><td>rust-hex-uds</td><td>848003</td><td class="hi">0.03ms</td><td>0.04ms</td><td>0.06ms</td><td>2.60ms</td><td>84800</td></tr>
+<tr><td>rust-hex-grpc</td><td>163899</td><td>0.17ms</td><td>0.23ms</td><td>0.28ms</td><td>5.60ms</td><td>16390</td></tr>
+<tr><td>rust-layered-grpc</td><td>159952</td><td>0.17ms</td><td>0.24ms</td><td>0.28ms</td><td>5.27ms</td><td>15995</td></tr>
+<tr><td>rust-flat-grpc</td><td>156323</td><td>0.18ms</td><td>0.24ms</td><td>0.29ms</td><td>7.25ms</td><td>15632</td></tr>
+<tr><td>go-flat-grpc</td><td>130066</td><td>0.21ms</td><td>0.32ms</td><td>0.41ms</td><td>7.16ms</td><td>13007</td></tr>
+<tr><td>go-hex-grpc</td><td>129274</td><td>0.21ms</td><td>0.32ms</td><td>0.42ms</td><td>7.52ms</td><td>12927</td></tr>
+<tr><td>go-layered-grpc</td><td>131443</td><td>0.21ms</td><td>0.31ms</td><td>0.40ms</td><td>6.53ms</td><td>13144</td></tr>
+<tr><td>go-flat-uds</td><td>566314</td><td>0.04ms</td><td>0.07ms</td><td>0.10ms</td><td>8.50ms</td><td>56631</td></tr>
+<tr><td>go-layered-uds</td><td>571874</td><td>0.04ms</td><td>0.07ms</td><td>0.10ms</td><td>9.62ms</td><td>57187</td></tr>
+<tr><td>go-hex-uds</td><td>553337</td><td>0.05ms</td><td>0.07ms</td><td>0.10ms</td><td>8.54ms</td><td>55334</td></tr>
+<tr><td>go-flat-http</td><td>2652</td><td class="lo">8.00ms</td><td>11.00ms</td><td>13.00ms</td><td>27.00ms</td><td>265</td></tr>
+<tr><td>rust-flat-http</td><td>2739</td><td class="lo">8.00ms</td><td>11.00ms</td><td>13.00ms</td><td>15.00ms</td><td>274</td></tr>
+<tr><td>rust-layered-http</td><td>2780</td><td class="lo">8.00ms</td><td>11.00ms</td><td>12.00ms</td><td>14.00ms</td><td>278</td></tr>
+<tr><td>rust-hex-http</td><td>2725</td><td class="lo">8.00ms</td><td>12.00ms</td><td>13.00ms</td><td>17.00ms</td><td>272</td></tr>
+<tr><td>go-hex-http</td><td>2648</td><td class="lo">8.00ms</td><td>12.00ms</td><td>16.00ms</td><td>31.00ms</td><td>265</td></tr>
+<tr><td>go-layered-http</td><td>2529</td><td class="lo">9.00ms</td><td>13.00ms</td><td>17.00ms</td><td>36.00ms</td><td>253</td></tr>
+<tr><td>c-flat-http</td><td>2342</td><td class="lo">10.00ms</td><td>13.00ms</td><td>15.00ms</td><td>17.00ms</td><td>234</td></tr>
+<tr><td>c-hex-http</td><td>2340</td><td class="lo">10.00ms</td><td>13.00ms</td><td>15.00ms</td><td>18.00ms</td><td>234</td></tr>
+<tr><td>c-layered-http</td><td>2247</td><td class="lo">11.00ms</td><td>14.00ms</td><td>16.00ms</td><td>18.00ms</td><td>225</td></tr>
+</table>
+</table>
+<div style="margin-top:30px;padding:20px;background:#16213e;border-radius:10px"><h2>Key Findings</h2><ul><li><b>Fastest:</b> UDS (p50&lt;0.1ms) - 86,940 RPS</li><li><b>HTTP:</b> ~200-300x slower than UDS</li><li><b>gRPC:</b> ~0.2ms p50, 13K-16K RPS</li><li><b>Architecture:</b> &lt;10% impact</li><li><b>Language:</b> Rust &gt; Go &gt; C</li></ul></div>
+<p style="color:#666;margin-top:30px">Generated: 2026-06-07 | <a href="https://github.com/dablon/arch-bench">github.com/dablon/arch-bench</a></p></body></html>
