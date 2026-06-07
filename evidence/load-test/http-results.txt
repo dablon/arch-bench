@@ -1,0 +1,7 @@
+=== HTTP Load Test Results ===
+rust-flat-http: 408 RPS, 0.13ms avg, p50=0.11, p95=0.21, p99=0.35, max=4.23
+rust-layered-http: 398 RPS, 1.60ms avg, p50=0.51, p95=6.44, p99=7.97, max=12.46
+rust-hex-http: 411 RPS, 0.13ms avg, p50=0.11, p95=0.21, p99=0.36, max=4.43
+go-flat-http: 390 RPS, 0.45ms avg, p50=0.39, p95=0.69, p99=1.74, max=7.88
+go-layered-http: 403 RPS, 0.13ms avg, p50=0.11, p95=0.22, p99=0.36, max=5.96
+go-hex-http: 406 RPS, 0.13ms avg, p50=0.11, p95=0.21, p99=0.36, max=4.10
