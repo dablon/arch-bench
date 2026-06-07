@@ -16,3 +16,10 @@
 <div style="background:#242938;padding:15px;border-radius:8px"><h4 style="color:#00d4ff">UDS Dominance</h4><p style="color:#8b949e">2000x better than HTTP</p></div>
 <div style="background:rgba(0,255,136,.05);border-left:4px solid #00ff88;padding:15px;border-radius:8px"><h4 style="color:#00d4ff">Rust Top Performer</h4><p style="color:#8b949e">Best RPS and lowest latency</p></div></div>
 <div style="text-align:center;margin-top:40px;padding-top:20px;border-top:1px solid #30363d;color:#8b949e"><p><strong>arch-bench</strong> | <a href="https://github.com/dablon/arch-bench" style="color:#00d4ff">github.com/dablon/arch-bench</a></p><p>Generated: 2026-06-07 | Load Test: 30s, 50 workers</p></div></body></html>
+<div class="s"><h2>TPS Benchmark Results (30s, 100 workers)</h2><table><thead><tr><th>Service</th><th>Lang</th><th>TPS</th><th>Avg</th><th>p50</th><th>p95</th><th>p99</th><th>Max</th></tr></thead><tbody>
+<tr><td>rust-flat-http</td><td style="color:#00ff88">RUST</td><td style="color:#00ff88;font-weight:bold">395.8</td><td>1.62ms</td><td>0.52ms</td><td>6.51ms</td><td>8.15ms</td><td>14.15ms</td></tr>
+<tr><td>rust-hex-http</td><td style="color:#00ff88">RUST</td><td style="color:#00ff88;font-weight:bold">391.0</td><td>1.64ms</td><td>0.51ms</td><td>6.59ms</td><td>8.18ms</td><td>14.88ms</td></tr>
+<tr><td>rust-layered-http</td><td style="color:#00ff88">RUST</td><td style="color:#00ff88;font-weight:bold">386.3</td><td>1.72ms</td><td>0.57ms</td><td>6.64ms</td><td>8.28ms</td><td>17.69ms</td></tr>
+<tr><td>go-layered-http</td><td style="color:#00d4ff">GO</td><td>392.8</td><td>0.44ms</td><td>0.39ms</td><td>0.68ms</td><td>1.54ms</td><td>7.40ms</td></tr>
+<tr><td>go-hex-http</td><td style="color:#00d4ff">GO</td><td>392.2</td><td>0.44ms</td><td>0.38ms</td><td>0.70ms</td><td>1.83ms</td><td>7.95ms</td></tr>
+<tr><td>go-flat-http</td><td style="color:#00d4ff">GO</td><td style="color:#ff6b6b">202.9</td><td>0.96ms</td><td>0.47ms</td><td>3.36ms</td><td>5.50ms</td><td>10.08ms</td></tr></tbody></table></div>
