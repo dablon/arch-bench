@@ -1,0 +1,8 @@
+{"timestamp":"2026-06-08_01-00-00","services":[
+{"name":"rust-flat-http","protocol":"http","tps":395.8,"avg_ms":1.62,"p50":0.52,"p95":6.51,"p99":8.15,"max":14.15,"ok":11874,"errors":0},
+{"name":"rust-hex-http","protocol":"http","tps":391.0,"avg_ms":1.64,"p50":0.51,"p95":6.59,"p99":8.18,"max":14.88,"ok":11730,"errors":0},
+{"name":"rust-layered-http","protocol":"http","tps":386.3,"avg_ms":1.72,"p50":0.57,"p95":6.64,"p99":8.28,"max":17.69,"ok":11589,"errors":0},
+{"name":"go-layered-http","protocol":"http","tps":392.8,"avg_ms":0.44,"p50":0.39,"p95":0.68,"p99":1.54,"max":7.40,"ok":11784,"errors":0},
+{"name":"go-hex-http","protocol":"http","tps":392.2,"avg_ms":0.44,"p50":0.38,"p95":0.70,"p99":1.83,"max":7.95,"ok":11766,"errors":0},
+{"name":"go-flat-http","protocol":"http","tps":202.9,"avg_ms":0.96,"p50":0.47,"p95":3.36,"p99":5.50,"max":10.08,"ok":6087,"errors":0}],
+"meta":{"duration":30,"workers":100}}
